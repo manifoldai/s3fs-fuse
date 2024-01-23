@@ -3379,10 +3379,6 @@ static int readdir_multi_head(const char* path, const S3ObjList& head, void* buf
                 // Found objects under the path, so the path is directory.
                 //
                 std::string dirpath = path + reiter_str;
-                if (-ENOTEMPTY == dir_result) {
-                    // dirpath += "/";
-                    S3FS_PRN_INFO2("Skipped: Applied suffix '/' to dirpath %s", dirpath.c_str());
-                }
 
                 // Add stat cache
                 if(StatCache::getStatCacheData()->AddStat(dirpath, dummy_header, true)){    // set forcedir=true
