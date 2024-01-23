@@ -3369,7 +3369,7 @@ static int readdir_multi_head(const char* path, const S3ObjList& head, void* buf
         for(s3obj_list_t::iterator reiter = notfound_param.notfound_list.begin(); reiter != notfound_param.notfound_list.end(); ++reiter){
             int dir_result;
             std::string reiter_str = *reiter;
-            if('/' != *reiter_str.begin()){
+            if('/' != *reiter_str.begin() && !reiter_str.empty()){
                 // path must start with '/'
                 reiter_str = "/" + reiter_str;
             }
