@@ -3380,8 +3380,8 @@ static int readdir_multi_head(const char* path, const S3ObjList& head, void* buf
                 //
                 std::string dirpath = path + reiter_str;
                 if (-ENOTEMPTY == dir_result) {
-                    dirpath += "/";
-                    S3FS_PRN_INFO2("Applied suffix '/' to dirpath %s", dirpath.c_str());
+                    // dirpath += "/";
+                    S3FS_PRN_INFO2("Skipped: Applied suffix '/' to dirpath %s", dirpath.c_str());
                 }
 
                 // Add stat cache
