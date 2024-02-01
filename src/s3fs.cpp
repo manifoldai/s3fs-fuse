@@ -3367,8 +3367,9 @@ static int readdir_multi_head(const char* path, const S3ObjList& head, void* buf
         dummy_header["x-amz-meta-mtime"] = "0";
 
         for(s3obj_list_t::iterator reiter = notfound_param.notfound_list.begin(); reiter != notfound_param.notfound_list.end(); ++reiter){
+            int dir_result;
             std::string dirpath = path + (*reiter);
-            if(-ENOTEMPTY == (int dir_result = directory_empty(dirpath.c_str()))){
+            if(-ENOTEMPTY == (dir_result = directory_empty(dirpath.c_str()))){
                 // Found objects under the path, so the path is directory.
 
                 // Add stat cache
