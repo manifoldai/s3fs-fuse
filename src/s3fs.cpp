@@ -3370,8 +3370,6 @@ static int readdir_multi_head(const char* path, const S3ObjList& head, void* buf
             std::string dirpath = path + (*reiter);
             if(-ENOTEMPTY == (dir_result = directory_empty(dirpath.c_str()))){
                 // Found objects under the path, so the path is directory.
-                //
-                std::string dirpath = path + reiter_str;
 
                 // Add stat cache
                 if(StatCache::getStatCacheData()->AddStat(dirpath, dummy_header, true)){    // set forcedir=true
